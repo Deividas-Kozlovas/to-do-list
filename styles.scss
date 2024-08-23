@@ -1,0 +1,47 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+#todoInput {
+    padding: 10px;
+    font-size: 16px;
+    width: 300px;
+}
+
+button {
+    padding: 10px 15px;
+    font-size: 16px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    padding: 10px;
+    background: #f4f4f4;
+    margin: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.completed {
+    text-decoration: line-through;
+    color: grey;
+}
+
+.task-buttons {
+    display: flex;
+}
+
+.task-buttons button {
+    margin-left: 5px;
+}

@@ -9,16 +9,27 @@ function addTask() {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(task)
         })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Failed to add task');
+            }
+        })
         .then(() => {
             input.value = '';
             loadTasks();
-        });
+        })
+        .catch(error => console.error('Failed to add task:', error));
     }
 }
 
 function loadTasks() {
     fetch('/tasks')
-        .then(response => response.json())
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Failed to load tasks');
+            }
+            return response.json();
+        })
         .then(tasks => {
             const list = document.getElementById('todoList');
             list.innerHTML = '';
@@ -44,7 +55,8 @@ function loadTasks() {
                 li.appendChild(buttonsDiv);
                 list.appendChild(li);
             });
-        });
+        })
+        .catch(error => console.error('Failed to load tasks:', error));
 }
 
 function toggleComplete(index) {
@@ -63,6 +75,11 @@ function toggleComplete(index) {
                 body: JSON.stringify(task)
             });
         })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Failed to update task');
+            }
+        })
         .then(() => loadTasks())
         .catch(error => console.error('Failed to toggle task completion:', error));
 }
@@ -71,5 +88,11 @@ function removeTask(index) {
     fetch(`/tasks/${index}`, {
         method: 'DELETE'
     })
-    .then(() => loadTasks());
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Failed to remove task');
+        }
+    })
+    .then(() => loadTasks())
+    .catch(error => console.error('Failed to remove task:', error));
 }

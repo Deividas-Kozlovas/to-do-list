@@ -11,15 +11,26 @@ This is a simple project that has been created millions of times by others—a t
 - Add and remove items from the to-do list
 - Mark items as complete or incomplete
 
-## Instalation
+## Installation
 
-1. Clone the repository:
-   https://github.com/Deividas-Kozlovas/to-do-list.git
+1. Install [Node.js](https://nodejs.org/), if you haven't already.
+2. Clone the repository:
+   ```bash
+   git clone https://github.com/Deividas-Kozlovas/to-do-list.git
+   ```
+3. Navigate to the project directory:
+   ```bash
+   cd to-do-list
+   ```
+4. Install the necessary dependencies:
+   ```bash
+   npm install
+   ```
 
 ## Usage
 
--Open the project folder in Visual Studio Code.
--Run the following command in the terminal:
-`bash
-    node app.js
-    `
+1. Open the project folder in Visual Studio Code.
+2. Run the following command in the terminal:
+   ```bash
+   node app.js
+   ```
